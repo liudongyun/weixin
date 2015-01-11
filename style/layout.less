@@ -1,0 +1,31 @@
+/* less */
+	/* 定位 */
+	.abs(){position:absolute;}
+	.rel(){position:relative;}
+	/* 宽高 */
+	.w(@length){width:@length}
+	.h(@length){height:@length}
+	/* 动画 */
+	.animate(@name,@time,@delay){-webkit-animation:@name @time @delay forwards}
+	.animate(@name,@time){-webkit-animation:@name @time forwards}
+	/* left top bottom right */
+	.t(@length){top:@length}
+	.l(@length){left:@length}
+	.r(@length){right:@length}
+	.b(@length){bottom:@length}
+	/* opacity z-index */
+	.opa(@math){opacity:@math}
+	.z(@math){z-index:@math}
+	/* animation-delay */
+	.delay(@time){-webkit-animation-delay:@time}
+	/* margin的left right top bottom */
+	.ml(@length){margin-left:@length}
+	.mr(@length){margin-right:@length}
+	.mt(@length){margin-top:@length}
+	.mb(@length){margin-bottom:@length}
+	/* animation-origin */
+	.origin(@pos){-webkit-transform-origin:@pos}
+	/* border-radius: */
+	.radius(@per){border-radius:@per}
+	/* rotate */
+	.rotate(@angle){-webkit-transform:rotate(@angle)}
