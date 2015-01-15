@@ -7,6 +7,8 @@
 	.h(@length){height:@length}
 	/* 动画 */
 	.animate(@name,@time,@delay){-webkit-animation:@name @time @delay forwards}
+	.animate1(@name,@time,@delay){-webkit-animation:@name @time @delay infinite}
+	.animate1(@name,@time){-webkit-animation:@name @time infinite}
 	.animate(@name,@time){-webkit-animation:@name @time forwards}
 	/* left top bottom right */
 	.t(@length){top:@length}
@@ -23,9 +25,16 @@
 	.mr(@length){margin-right:@length}
 	.mt(@length){margin-top:@length}
 	.mb(@length){margin-bottom:@length}
+	/* padding的left right top bottom */
+	.pl(@length){padding-left:@length}
+	.pr(@length){padding-right:@length}
+	.pt(@length){padding-top:@length}
+	.pb(@length){padding-bottom:@length}
 	/* animation-origin */
 	.origin(@pos){-webkit-transform-origin:@pos}
 	/* border-radius: */
 	.radius(@per){border-radius:@per}
 	/* rotate */
 	.rotate(@angle){-webkit-transform:rotate(@angle)}
+	/* background-color */
+	.bac(@color){background-color:@color}

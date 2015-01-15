@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta  name="viewport" content="width=device-width, maximum-scale=1">
+<link rel="stylesheet" href="../style/css/idangerous.swiper.css">
+<link rel="stylesheet" href="../style/css/index2.css">
+<script src="../js/idangerous.swiper.js"></script>
+<script src="../js/zepto.min.js"></script>
+<script src="../js/idangerous.swiper.progress.min.js"></script>
+<script src="../js/idangerous.swiper.progress.js"></script>
+<script>
+	window.onload = function() {
+	   $('.swiper-container.swiper-wrapper').css({'height':'100%'});
+	   var index=null;
+	   var slide=null;
+	   var animate=null;
+  	  function indexFn(index,slide,animate){
+  	  	
+  	  	if(mySwiper.activeLoopIndex==index){
+      		$(slide).addClass(animate);
+      	}else{
+      		$(slide).removeClass(animate);
+      	}
+  	  }	
+	  var mySwiper = new Swiper('.swiper-container',{
+	    mode:'horizontal',
+	    loop: true,
+	    calculateHeight:false,
+	    paginationClickable: true,
+	    progress:true,
+	      onProgressChange: function(swiper){
+	        for (var i = 0; i < swiper.slides.length; i++){
+	          var slide = swiper.slides[i];
+	          var progress = slide.progress;
+	          var rotate = -90*progress;
+	          if (rotate<-90) rotate=-90;
+	          if (rotate>90) rotate=90;
+	          var translate = progress*swiper.width/2;  
+	          var opacity = 1 - Math.min(Math.abs(progress),1);
+	          slide.style.opacity = opacity;
+	          swiper.setTransform(slide,'rotateY('+rotate+'deg) translate3d('+translate+'px,0,0)');
+	        }
+	      },
+	      onTouchStart:function(swiper){
+	        for (var i = 0; i < swiper.slides.length; i++){
+	          swiper.setTransition(swiper.slides[i], 0);
+	        }
+	      },
+	      onSetWrapperTransition: function(swiper, speed) {
+	        for (var i = 0; i < swiper.slides.length; i++){
+	          swiper.setTransition(swiper.slides[i], speed);
+	        }
+	      },
+	    pagination: '.pagination',
+	    onTouchEnd:function(){
+	    	indexFn('0','.slide-1','animate-1');
+	    	indexFn('1','.slide-2','animate-2');
+	    	indexFn('2','.slide-3','animate-3');
+	    	indexFn('3','.slide-4','animate-4');	    	
+	    }
+	  }); 	  
+	}
+</script>
+<title>无标题文档</title>
+</head>
+<body>
+	<div class="swiper-container">
+	  <div class="swiper-wrapper">
+	      <!--First Slide-->
+		  <div class="swiper-slide slide-1 animate-1"> 
+		  	<div class="box box-1">
+			  	<div class="ball hide">
+	 	  			<img src="../images/water.png" alt="" class="water">
+	  				<img src="../images/cloth.png" alt="" class="cloth">
+	 	  		</div> 	
+	 	  		<img src="../images/head.png" alt="" class="head">
+ 	  			<img src="../images/arm.png" alt="" class="arm">
+ 	  			<img src="../images/hand.png" alt="" class="hand">
+ 	  			<img src="../images/star.png" alt="" class="star star1">
+ 	  			<img src="../images/star.png" alt="" class="star star2">
+ 	  			<img src="../images/star.png" alt="" class="star star3">
+		  	</div>	
+		  	<div class="font"><img src="../images/font1.png" alt=""></div>
+	      </div>
+	      
+	      <!--Second Slide-->
+	      <div class="swiper-slide slide-2">
+	      	<div class="box box-2">
+			  	<div class="ball hide">
+	 	  			<img src="../images/water.png" alt="" class="water">
+	 	  			<img src="../images/fly.png" alt="" class="fly">
+	 	  			<img src="../images/arrow1.png" alt="" class="arrow1">
+	 	  			<img src="../images/arrow2.png" alt="" class="arrow2">
+	 	  		</div> 	
+		  	</div>	
+		  	<div class="font"><img src="../images/font2.png" alt=""></div>	
+	      </div>
+	      
+	      <!--Third Slide-->
+	      <div class="swiper-slide slide-3"> 
+	        <div class="box box-3">
+			  	<div class="ball hide">
+	 	  			<img src="../images/water.png" alt="" class="water">
+	 	  			<img src="../images/umb.png" alt="" class="umb">
+	 	  			<img src="../images/wave.png" alt="" class="wave">
+	 	  		</div> 	
+		  	</div>	
+		  	<div class="font"><img src="../images/font3.png" alt=""></div>
+	      </div>
+		  <!--Fourth Slide-->
+	        <div class="swiper-slide slide-4"> 
+	          <div class="box box-4">
+	  		  	<div class="ball hide">
+	   	  			<img src="../images/water.png" alt="" class="water">
+	   	  			<img src="../images/logo.png" alt="" class="logo">
+	   	  		</div> 	
+	  	  	  </div>
+	  	  	  <div class="font"><img src="../images/font4.png" alt=""></div>	
+	        </div>
+	      <!--Etc..-->
+	  </div>
+	  <div class="pagination"></div>
+	</div>
+	
+</body>
+</html>
